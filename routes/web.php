@@ -1,10 +1,16 @@
 <?php
+namespace App\Http\Controllers;
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Authenticate;
 
+
+
+Route::resource('Brands',BrandController::class);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
