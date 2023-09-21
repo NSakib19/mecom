@@ -10,7 +10,7 @@ use App\Http\Middleware\Authenticate;
 
 
 
-Route::resource('Brands',BrandController::class);
+Route::resource('brands',BrandController::class);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +27,7 @@ Route::middleware(['auth','role:admin'])->group(function (){
 
     Route::get('/admin/logout',[AdminController::class,'adminDestroy'])->name('admin.logout');
 });
+Route::get('/admin/login',[AdminController::class,'adminLogin']);
 
 Route::middleware(['auth','role:vendor'])->group(function (){
 

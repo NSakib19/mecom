@@ -12,6 +12,10 @@ class AdminController extends Controller
     {
         return view('admin.admin_dashboard');
     }//end method
+    public function adminLogin()
+    {
+        return view('admin.admin_login');
+    }
 
 
     public function adminDestroy(Request $request): RedirectResponse
@@ -22,6 +26,6 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/admin/login');
     }
 }

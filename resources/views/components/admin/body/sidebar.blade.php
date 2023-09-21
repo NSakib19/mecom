@@ -34,7 +34,7 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="{{route('Brands.index')}}">
+                <a class="sidebar-link" href="{{route('brands.index')}}">
                     <i class="align-middle" data-feather="book"></i> <span class="align-middle">Brands</span>
                 </a>
             </li>

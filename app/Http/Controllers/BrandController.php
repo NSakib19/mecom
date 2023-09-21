@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
-//use Image;
+use Image;
 
 class BrandController extends Controller
 {
@@ -31,15 +31,15 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        // $image = $request->file('brand_image');
-        // $fileName= hexdec(uniqid()).'.'.
-        //     $image->getClientOriginalExtension();
-        //     Image::make($image)->resize(1076,507)->save('upload/brand/'.$fileName);
-        //     $save_url = 'upload/brand/'.$fileName;
-        Brand::create([
+        $image = $request->file('brand_image');
+        $fileName= hexdec(uniqid()).'.'.
+            $image->getClientOriginalExtension();
+            'Image'::make($image)->resize(1076,507)->save('upload/brand/'.$fileName);
+            $save_url = 'upload/brand/'.$fileName;
+            Brand::create([
             'brand_name'=>$request->brand_name,
-            'brand_slug'=>$request->brand_slug,
-            //'brand_image'=>$save-url,
+            'brand_slug'=>strtolower(str_replace('','-',$request->brand_slug)),
+            'brand_image'=>$save_url,
         ]);
     }
 
@@ -48,7 +48,7 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        //
+        return view('admin.brands.show',['brand'=>$brand]);
     }
 
     /**
@@ -56,6 +56,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
+        return view('admin.brands.edit',['brand'=>$brand]);
         //
     }
 
@@ -64,7 +65,18 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        //
+        $image = $request->file('brand_image');
+        $fileName= hexdec(uniqid()).'.'.
+            $image->getClientOriginalExtension();
+            'Image'::make($image)->resize(1076,507)->save('upload/brand/'.$fileName);
+            $save_url = 'upload/brand/'.$fileName;
+            $brand->update([
+            'brand_name'=>$request->brand_name,
+            'brand_slug'=>strtolower(str_replace('','-',$request->brand_slug)),
+            'brand_image'=>$save_url,
+        ]);
+
+        return redirect()->route('brands.index');
     }
 
     /**
@@ -72,6 +84,7 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+        return redirect()->route('brands.index');
     }
 }
