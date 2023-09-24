@@ -7,7 +7,7 @@
                     <h5 class="card-title mb-0">Create Brand</h5>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-info ms-4" href="{{route('brands.create')}}">Back</a>
+                    <a class="btn btn-info ms-4" href="{{route('sliders.create')}}">Back</a>
                 </div>
                 <table class="table table-hover my-0">
                     <thead>
@@ -19,18 +19,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($brands as $key =>$brand)
+                        @foreach ($sliders as $key =>$slider)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td class="d-none d-xl-table-cell">{{$brand->brand_name}}</td>
-                            <td><img src="{{asset("$brand->brand_image")}}" style="width: 70px; height: 40px"></td>
-                            <td><a class="btn btn-info btn-sm" href="{{route('brands.show',['brand'=>$brand->id])}}">Show</a>
-                            <a class="btn btn-info btn-sm" href="{{route('brands.edit',['brand'=>$brand->id])}}">Edit</a><form style="display: inline" action="{{route('brands.destroy',['brand'=>$brand->id])}}" method="post">
+                            <td class="d-none d-xl-table-cell">{{$slider->slider_title}}</td>
+                            <td><img src="{{asset("$slider->slider_image")}}" style="width: 70px; height: 40px"></td>
+                            <td><a class="btn btn-info btn-sm" href="{{route('sliders.show',['slider'=>$slider->id])}}">Show</a>
+                            <a class="btn btn-info btn-sm" href="{{route('sliders.edit',['slider'=>$slider->id])}}">Edit</a><form style="display: inline" action="{{route('sliders.destroy',['slider'=>$slider->id])}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('are you sure want to delete?')">Delete</button>
-                            </form>
-                        </td>
+                            </form></td>
                             
                             
                                     {{-- <td class="d-none d-md-table-cell">Vanessa Tucker</td> --}}

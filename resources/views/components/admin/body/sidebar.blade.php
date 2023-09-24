@@ -38,6 +38,17 @@
                     <i class="align-middle" data-feather="book"></i> <span class="align-middle">Brands</span>
                 </a>
             </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{route('sliders.index')}}">
+                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Slider</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{route('categories.index')}}">
+                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Category</span>
+                </a>
+            </li>
 
             <li class="sidebar-header">
                 Tools & Components

@@ -4,10 +4,10 @@
             <div class="card flex-fill">
                 <div class="card-header">
 
-                    <h5 class="card-title mb-0">Create Brand</h5>
+                    <h5 class="card-title mb-0">Create Category</h5>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-info ms-4" href="{{route('brands.create')}}">Back</a>
+                    <a class="btn btn-info ms-4" href="{{route('categories.create')}}">Back</a>
                 </div>
                 <table class="table table-hover my-0">
                     <thead>
@@ -19,18 +19,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($brands as $key =>$brand)
+                        @foreach ($categories as $key =>$category)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td class="d-none d-xl-table-cell">{{$brand->brand_name}}</td>
-                            <td><img src="{{asset("$brand->brand_image")}}" style="width: 70px; height: 40px"></td>
-                            <td><a class="btn btn-info btn-sm" href="{{route('brands.show',['brand'=>$brand->id])}}">Show</a>
-                            <a class="btn btn-info btn-sm" href="{{route('brands.edit',['brand'=>$brand->id])}}">Edit</a><form style="display: inline" action="{{route('brands.destroy',['brand'=>$brand->id])}}" method="post">
+                            <td class="d-none d-xl-table-cell">{{$category->category_name}}</td>
+                            <td><img src="{{asset("$category->category_image")}}" style="width: 70px; height: 40px"></td>
+                            <td><a class="btn btn-info btn-sm" href="{{route('categories.show',['category'=>$category->id])}}">Show</a>
+                            <a class="btn btn-info btn-sm" href="{{route('categories.edit',['category'=>$category->id])}}">Edit</a>
+                            <form style="display: inline" action="{{route('categories.destroy',['category'=>$category->id])}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('are you sure want to delete?')">Delete</button>
-                            </form>
-                        </td>
+                            </form></td>
                             
                             
                                     {{-- <td class="d-none d-md-table-cell">Vanessa Tucker</td> --}}

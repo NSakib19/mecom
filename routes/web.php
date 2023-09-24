@@ -7,10 +7,15 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Authenticate;
+use App\Http\Controllers\CategoryController;
 
 
 
 Route::resource('brands',BrandController::class);
+
+Route::resource('sliders',SliderController::class);
+
+Route::resource('categories',CategoryController::class);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +31,11 @@ Route::middleware(['auth','role:admin'])->group(function (){
     Route::get('/admin/dashboard/',[AdminController::class,'adminDashboard'])->name('admin.Dashboard');
 
     Route::get('/admin/logout',[AdminController::class,'adminDestroy'])->name('admin.logout');
+    Route::get('/admin/login',[AdminController::class,'adminLogin']);
+    Route::get('/admin/profile',[AdminController::class,'adminProfile'])->name('admin.profile');
 });
-Route::get('/admin/login',[AdminController::class,'adminLogin']);
+    
+    
 
 Route::middleware(['auth','role:vendor'])->group(function (){
 
