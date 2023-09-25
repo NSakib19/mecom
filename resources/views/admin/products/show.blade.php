@@ -3,11 +3,11 @@
         <div class="col-12 col-lg-12 col-xxl-9 d-flex">
             <div class="card flex-fill">
                 <div class="card-header">
-                    Show Brand <a class="btn btn-info ms-4" href="{{route('brands.index')}}">Lists</a>
+                    Show Products <a class="btn btn-info ms-4" href="{{route('products.index')}}">Lists</a>
                 </div>
-                <h2> Title:{{$brand->brand_name}}</h2>
+                <h2> Title:{{$product->product_name}}</h2>
             
-                <h2> Image<img src="{{asset("$brand->brand_image")}}" style="width: 70px; height: 40px"></h2>
+                <h2> Image<img src="{{asset("$product->product_image")}}" style="width: 70px; height: 40px"></h2>
                 
             </div>
         </div>

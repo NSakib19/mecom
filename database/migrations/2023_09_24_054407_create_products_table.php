@@ -27,7 +27,6 @@ return new class extends Migration
             $table->text('short_descp');
             $table->text('long_descp');
             $table->string('product_image');
-            $table->string('vendor_image');
             $table->integer('vendor_id')->nullable();
             $table->integer('hot_deals')->nullable();
             $table->integer('featured')->nullable();

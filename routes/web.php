@@ -16,6 +16,8 @@ Route::resource('brands',BrandController::class);
 Route::resource('sliders',SliderController::class);
 
 Route::resource('categories',CategoryController::class);
+
+Route::resource('products',ProductController::class);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
