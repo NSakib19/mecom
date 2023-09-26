@@ -185,7 +185,7 @@
                 <div class="col-sm-9">
                     <select name="brand_id" class="form-select">
                         <option></option>
-                        @foreach($brands as @brand)
+                        @foreach($brands as $brand)
                             <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
                         @endforeach                        
                     </select>
@@ -199,8 +199,8 @@
                 <div class="col-sm-9">
                     <select name="category_id" class="form-select">
                         <option></option>
-                        @foreach($categories as @category)
-                            <option value="{{$category->id}}">{{$category->category_name}}</option>
+                        @foreach($activeVendor as $vendor)
+                            <option value="{{$vendor->id}}">{{$vendor->name}}</option>
                         @endforeach
                     </select>
                 </div>

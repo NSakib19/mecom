@@ -18,6 +18,10 @@ Route::resource('sliders',SliderController::class);
 Route::resource('categories',CategoryController::class);
 
 Route::resource('products',ProductController::class);
+
+Route::get('/product/inactive/{id}',[ProductController::class, 'ProductInactive'])->name('product.inactive');
+
+Route::get('/product/active/{id}',[ProductController::class, 'ProductActive'])->name('product.active');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
