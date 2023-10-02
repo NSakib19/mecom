@@ -142,12 +142,19 @@
                     <i class="align-middle" data-feather="settings"></i>
                 </a>
 
+                @php
+                    $id = Auth::user()->id;
+                    $adminData = App\Models\User::find($id);
+                @endphp
+                
+                ?>
+
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                    <img src="{{asset('ui/backend/img/avatars/avatar.jpg')}}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                    <img src="{{(!empty($adminData->photo)) ? url('upload/admin_images/'.$adminData->photo):url('upload/no_image.jpg')}}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">{{Auth::user()->name}}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a class="dropdown-item" href="{{route('admin.profile')}}"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
-                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
+                    <a class="dropdown-item" href="{{route('admin.change.password')}}"><i class="align-middle me-1" data-feather="user"></i> Password</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
                     <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>

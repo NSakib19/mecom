@@ -62,45 +62,28 @@
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Email</h6>
+                                            <h6 class="mb-0">Password</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="email" name="email" class="form-control" value="{{$adminData->email}}" />
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Phone</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <input type="tel" name="phone" class="form-control" value="{{$adminData->phone}}" />
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Address</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="address" class="form-control" value="{{$adminData->address}}" />
+                                            <input type="password" name="old_password" class="form-control" id="current_password"
+                                            placeholder="Old Password" />
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Picture</h6>
+                                            <h6 class="mb-0">New Password</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="file" name="photo" class="form-control" id="image" />
+                                            <input type="password" name="new_password" class="form-control" id="new_password"
+                                            placeholder="Old Password" />
                                         </div>
                                     </div>
+                                    
 
-                                    <div class="row mb-3">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Picture</h6>
-                                        </div>
-                                        <img id="showImage" src="{{(!empty($adminData->photo)) ? url('upload/admin_images/'.$adminData->photo):url('upload/no_image.jpg')}}" alt="" class="img-fluid rounded-circle mb-2" width="100" height="100" />
-                                        
-                                    </div>
+                                    
+
+                                    
 
 
                                     <div class="row">
@@ -119,15 +102,5 @@
         </div>
     </main>
 
-    <script type="text/javascript">
-    $(document).ready(function (){
-        $('#image').change(function(e){
-            var reader = new FileReader();
-            reader .onload = function(e){
-                $('#showImage').attr('src',e.target.result);
-            }
-            reader.readAsDataURL(e.target.files['0']);
-        });
-    });
-    </script>
+    
 </x-admin.layouts.admin_master>

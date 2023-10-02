@@ -31,3 +31,22 @@
         </div>
     </div>
 </div>
+
+
+@php
+    $sliders = App\Models\Slider::orderBy('slider_title','ASC')->get();
+@endphp
+
+<div class="wrap-main-slide">
+    <div class="slide-carousel owl-carousel style-nav-1" data-items="1" data-loop="1" data-nav="true" data-dots="false">
+        @foreach($sliders as $slider)
+        <div class="item-slide">
+            <img src="{{asset($slider->slider_image)}}')}}" alt="" class="img-slide">
+            <div class="slide-info slide-1">
+                <a href="#" class="btn-link">Shop Now</a>
+            </div>
+        </div>
+        @endforeach
+
+    </div>
+</div>

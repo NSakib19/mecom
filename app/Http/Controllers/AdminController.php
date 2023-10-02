@@ -47,6 +47,12 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function AdminChangePassword()
+    {
+        
+        return view('admin.admin_change_password');
+    }
+
 
     public function adminDestroy(Request $request): RedirectResponse
     {

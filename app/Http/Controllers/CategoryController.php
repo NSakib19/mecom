@@ -41,6 +41,8 @@ class CategoryController extends Controller
             'category_slug'=>strtolower(str_replace('','-',$request->category_slug)),
             'category_image'=>$save_url,
         ]);
+        return redirect()->route('categories.index');
+
     }
 
     /**
