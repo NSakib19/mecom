@@ -8,8 +8,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Authenticate;
 use App\Http\Controllers\CategoryController;
-
-
+use App\Http\Controllers\Frontend\IndexController;
 
 Route::resource('brands',BrandController::class);
 
@@ -66,5 +65,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+//frontend
+
+
+Route::get('/', function () {
+    return view('frontend.index');
+});
+
+Route::get('/product/details/{id}/{slug}',[IndexController::class, 'ProductDetails']);
 
 require __DIR__.'/auth.php';
