@@ -74,6 +74,6 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
-Route::get('/product/details/{id}/{slug}',[IndexController::class, 'ProductDetails']);
+Route::get('/product/details/{id}/{slug}',[IndexController::class,'ProductDetails']);
 
 require __DIR__.'/auth.php';

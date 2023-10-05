@@ -109,13 +109,36 @@
                                 <table class="shop_attributes">
                                     <tbody>
                                         <tr>
-                                            <th>Weight</th><td class="product_weight">1 kg</td>
+                                            <th>Size</th>@if ($product->product_size == NULL)										
+                                            @else
+                                                <td class="product_weight"></td>
+                                                <select class="form-control unicase-form-control" id="size">
+                                                    <option selected="" disabled>Choose Size</option>
+                                                    @foreach ($product_size as $size)
+                                                        <option value="{{$size}}">
+                                                            {{ucwords($size)}}
+                                                        </option>
+                                                        
+                                                    @endforeach
+                                                </select>
+                                            @endif
                                         </tr>
+                                        
                                         <tr>
-                                            <th>Dimensions</th><td class="product_dimensions">12 x 15 x 23 cm</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Color</th><td><p>Black, Blue, Grey, Violet, Yellow</p></td>
+                                            <th>Color</th><@if ($product->product_color == NULL)
+													
+                                            @else
+                                                <td class="product_weight"></td>
+                                                <select class="form-control unicase-form-control" id="size">
+                                                    <option selected="" disabled>Choose Color</option>
+                                                    @foreach ($product_color as $color)
+                                                        <option value="{{$color}}">
+                                                            {{ucwords($color)}}
+                                                        </option>
+                                                        
+                                                    @endforeach
+                                                </select>
+                                            @endif
                                         </tr>
                                     </tbody>
                                 </table>
